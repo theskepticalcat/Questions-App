@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questions App</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <div class="container">
+
+    <div class="title">
+      <div class="title_mane">
+          Questions App
+          <br>
+          <p class="title_author">by theskepticalcat</p>
+        </div>
+    </div>
+
+    <div class="form-wrapper">
+      <div class="question">Ask me a question:</div>
+
+      <!-- Form -->
+      <form class="form" id="form">
+        <div class="textfield">
+          <label for="question-input" class="askme">Ask</label>
+          <input type="text" class="input" id="question-input" required minlength="10" maxlength="256">
+        </div>
+
+        <button type="submit" class="submitBtn" id="submit" disabled>
+          Send
+        </button>
+      </form>
+    </div>
+
+    <div class="content">
+          <div class="questions">
+            Your questions:
+          </div>
+          <div class=""></div>
+
+
+          <!-- Блок для рендера заданных вопросов -->
+          <div id="list"></div>
+
+          <!-- Bottom btn -->
+          <button class="allBtn" id="modal-btn">
+            All
+          </button>
+    </div>
+  </div>
+</body>
+</html>

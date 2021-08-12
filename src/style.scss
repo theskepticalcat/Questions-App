@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Style+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+html,
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+
+/*App title*/
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #e63d75;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  max-width: 500px;
+  margin: 2rem auto;
+}
+
+.title_mane{
+  font-size: 3rem;
+  font-family: 'Roboto', sans-serif;
+
+  margin-bottom: 2rem;
+}
+
+.title_author {
+  display: block;
+  font-size: 1.5rem;
+  font-family: 'Style Script', cursive;
+  text-align: center;
+  margin: 0;
+}
+
+
+/*Form*/
+.form-wrapper {
+  border: 1px solid rgb(245, 245, 245);
+  background-color: #f5f5f5;
+  padding: 1rem;
+  width: 100%;
+  border-radius: 0.2rem;
+}
+
+.question {
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.content {
+  width: 100%;
+  margin-left: 1rem;
+}
+
+.input {
+  border: transparent;
+  border-bottom: 1.3px solid lightgrey;
+  width: 98%;
+
+  outline: none;
+  background-color: #f5f5f5;
+  z-index: 1000;
+
+  &:focus {
+    border-bottom: 1.3px solid grey;
+  }
+
+  &:hover {
+    transform: border translateY(-2px);
+  }
+}
+
+
+.askme {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  background-color:transparent;
+  font-size: 0.8rem;
+  color: grey;
+  transition: all 0.3s linear;
+}
+
+.askmeHover {
+  transform: translateY(-20px);
+  transition: all 0.3s linear;
+}
+
+.textfield {
+  position: relative;
+  margin-top: 1rem
+}
+
+.submitBtn {
+  margin-top: 0.5rem;
+  width: 5em;
+  height: 2em;
+  color: grey;
+
+  border: 1px solid;
+  border-radius: 0.2rem;
+}
+
+
+/*Questions*/
+.content {
+  margin-top: 1rem;
+  margin-left: 0;
+}
+.questions {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+
+/*Bottom btn*/
+.allBtn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  font-size: 0.8rem;
+  font-family: 'Roboto', sans-serif;
+
+  background-color: #e63d75;
+  color: #fff;
+  border: none;
+  border-radius: 0.2rem;
+  box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.4);
+
+  width: 3em;
+  height: 3em;
+
+  cursor: pointer;
+}
+
+.allBtnFocus {
+  box-shadow: inset 2px 2px 7px rgba(0, 0, 0, 0.3);
+}
+
+
+/*Modal*/
+.modal {
+  max-width: 600px;
+  min-height: 300px;
+  margin: 100px auto;
+  overflow-y: auto;
+  background: #fff;
+
+  h1 {
+    text-align: center;
+  }
+}
+
+.modal .modal-content {
+  padding: 1rem;
+}
+
+.error {
+  color: red;
+}
+
+
+
+@media (min-width: 768px) {
+  
+}
+
+@media (min-width: 768px) {
+  
+}
