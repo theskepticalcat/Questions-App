@@ -1,5 +1,6 @@
-import { isValid } from './handlers';
+import { createModal, isValid } from './handlers';
 import { Question } from './question';
+import { getAuthForm } from './auth';
 import './style.scss';
 
 //Элементы формы:
@@ -34,6 +35,8 @@ input.addEventListener('input', () => {
 //Приложение готово -> рендерится список из LocalStorage:
 window.addEventListener('load', Question.renderList);
 
+//Открытие модалки по кнопке ВСЕ:
+modalBtn.addEventListener('click', openModal);
 
 
 //Обработчик сабмита в форме:
@@ -58,4 +61,10 @@ function submitFormHandler(event) {
             }, 2000);
         }, 2000);
     }
+}
+
+
+//Создание модального окна:
+function openModal() {
+    createModal('Autorization', getAuthForm());
 }

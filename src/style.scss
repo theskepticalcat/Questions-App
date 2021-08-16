@@ -3,9 +3,6 @@
 
 html,
 body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -21,12 +18,14 @@ body {
 
 .container {
   display: flex;
+  position: relative;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 
   max-width: 500px;
   margin: 2rem auto;
+  padding: 1rem;
 }
 
 .title_mane{
@@ -47,10 +46,12 @@ body {
 
 /*Form*/
 .form-wrapper {
+  width: 100%;
+  margin: 1rem 2rem;
+  padding: 1rem;
+
   border: 1px solid rgb(245, 245, 245);
   background-color: #f5f5f5;
-  padding: 1rem;
-  width: 100%;
   border-radius: 0.2rem;
 }
 
@@ -160,10 +161,22 @@ body {
 
 
 /*Modal*/
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100vh;
+
+  background: rgba(0, 0, 0, 0.6)
+}
+
 .modal {
-  max-width: 600px;
-  min-height: 300px;
-  margin: 100px auto;
+  max-width: 500px;
+  max-height: 400px;
+
+  margin: 200px 15px;
   overflow-y: auto;
   background: #fff;
 
