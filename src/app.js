@@ -53,8 +53,6 @@ function submitFormHandler(event) {
             Question.create(question);
             setTimeout(() => {  //когда запрос выполнен ->
                 input.value = '';
-                input.className = '';
-                input.classList.add('input');
                 submitBtn.disabled = false;
                 label.classList.remove('askmeHover');
             }, 2000);

@@ -4,7 +4,7 @@
 export class Question {
     //Формирование вопроса и запись в БД:
     static create(question) {
-        fetch('https://ask-me-a-question-app-default-rtdb.asia-southeast1.firebasedatabase.app/name.json', { //name.json - название бд
+        return fetch('https://ask-me-a-question-app-default-rtdb.asia-southeast1.firebasedatabase.app/name.json', { //name.json - название бд
             method: 'POST', //создание об-кта
             body: JSON.stringify(question),
             headers: {
