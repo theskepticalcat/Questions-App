@@ -1,6 +1,6 @@
 import { createModal, isValid } from './handlers';
 import { Question } from './question';
-import { getAuthForm } from './auth';
+import { getAuthForm } from './authentification';
 import './style.scss';
 
 //Элементы формы:
