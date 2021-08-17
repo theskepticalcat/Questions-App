@@ -1,6 +1,6 @@
 import { createModal, isValid } from './handlers';
 import { Question } from './question';
-import { getAuthForm } from './authentification';
+import { getAuthForm, authWithEmailAndPass } from './authentification';
 import './style.scss';
 
 //Элементы формы:
@@ -67,4 +67,36 @@ function submitFormHandler(event) {
 //Создание модального окна:
 function openModal() {
     createModal('Autorization', getAuthForm());
+
+    document.getElementById('auth-form') 
+    .addEventListener('submit', authFormHandler, {once: true});  //событие для кнопки
+}
+
+
+//Логика по авторизации:
+function authFormHandler(event) {
+    event.preventDefault();
+
+    const btn = event.target.querySelector('button');
+
+    //Получаем email и password из инпутов:
+    const email = event.target.querySelector('#email').value;
+    const password = event.target.querySelector('#password').value;
+    btn.disabled = true;  //чтобы не спамить
+
+    authWithEmailAndPass(email, password)  //ф-ция авторизации -> получает idToken польз-ля
+    .then(Question.fetch)  //-> получаем список вопросов из базы
+    .then(renderModalAfterAuth)  //рендер модалки
+    .then(() => btn.disabled = false)  //если ошибка -> разблокируем кнопку
+}
+
+
+//Рендер модального окна после авторизации:
+function renderModalAfterAuth(content) {
+    if (typeof content === 'string') {  //если некорректные данные -> строчка, а когда корректные -> массив
+        createModal('Ошибка!', content);
+        
+    } else {
+        createModal('Список вопросов:', Question.listToHTML(content)); //контент спривести к списку -> listToHTML()
+    }
 }

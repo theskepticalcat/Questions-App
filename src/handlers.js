@@ -13,6 +13,7 @@ export function createModal(title, content) {
 
     const modal = modalOverlay.appendChild(document.createElement('div'));
     modal.classList.add('modal');
+    document.body.classList.add('no-scroll');
 
     const modalHtml = `
     <h1>${title}</h1>

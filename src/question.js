@@ -2,10 +2,10 @@
 
 
 export class Question {
-    //Формирование вопроса и запись в БД:
-    static create(question) {
-        return fetch('https://ask-me-a-question-app-default-rtdb.asia-southeast1.firebasedatabase.app/name.json', { //name.json - название бд
-            method: 'POST', //создание об-кта
+
+    static create(question) {  //формирование вопроса и запись в БД:
+        return fetch('https://ask-me-a-queastions-app-default-rtdb.firebaseio.com/questions.json', { //name.json - название бд
+            method: 'POST',
             body: JSON.stringify(question),
             headers: {
                 'Content-type': 'application/json'
@@ -32,6 +32,25 @@ export class Question {
         list.innerHTML = html;
     }
 
+    static fetch(token) {  //получаем список всех вопросов:
+        if(!token) {  //когда токена нет
+            return Promise.resolve('<p class="error">У Вас нет авторизации</p>');
+        }
+
+        return fetch(`https://ask-me-a-question-app-default-rtdb.asia-southeast1.firebasedatabase.app/questions.json?auth=${token}`)
+        .then(response => response.json())
+        .then(response => {
+            if(response && response.error) {  //если в ответе error
+                return `<p class="error">${response.error}</p>`;
+            }
+
+            return response ? Object.keys(response).map(key => ({  //трансформируем массив в новый массив
+                ...response[key],
+                id: key
+            })) : [];  //если в response null -> пустой массив
+        })
+    }
+
     //Рендер списка вопросов:
     static listToHTML(questions) {
         return questions.length
@@ -39,7 +58,6 @@ export class Question {
         : '<p>Вопросов пока нет</p>'
     }
 }
-
 
 
 //Добавление вопросов в Local Storage:
