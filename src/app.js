@@ -11,19 +11,10 @@ const modalBtn = document.getElementById('modal-btn');
 const label = document.querySelector('.askme');
 
 
-//Изменения стилей в кнопке All:
-modalBtn.addEventListener('click', () => {
-    modalBtn.classList.add('allBtnFocus');
-})
-modalBtn.addEventListener('mouseout', () => {
-    modalBtn.classList.remove('allBtnFocus');
-})
 //Добавление стиля для плэйсхолдэра в инпуте:
 input.addEventListener('click', () => {
     label.classList.add('askmeHover');
 })
-
-
 
 //Обрабатываем форму:
 form.addEventListener('submit', submitFormHandler);
@@ -67,6 +58,7 @@ function submitFormHandler(event) {
 //Создание модального окна:
 function openModal() {
     createModal('Autorization', getAuthForm());
+    modalBtn.classList.add('allBtnFocus');
 
     document.getElementById('auth-form') 
     .addEventListener('submit', authFormHandler, {once: true});  //событие для кнопки

@@ -75,10 +75,12 @@ function getQuestionsFromLS() {
 //Метод для трансформации блока с фопросом:
 function toCard(question) {
     return `
-    <div class="/">
+    <div class="card">
+    <div class="card-time">
     ${new Date(question.date).toLocaleDateString()}
     ${new Date(question.date).toLocaleTimeString()}
     </div>
     <div>${question.text}</div>
+    </div>
     <br>`
 }

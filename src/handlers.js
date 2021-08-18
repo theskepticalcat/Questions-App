@@ -20,4 +20,12 @@ export function createModal(title, content) {
     <div class="modal-content">${content}</div>
     `;
     modal.innerHTML = modalHtml;
+
+    //Убираем маску:
+    modalOverlay.addEventListener('click', event => {
+        if (event.target.classList.contains('overlay')) {
+            document.body.removeChild(modalOverlay);
+            document.querySelector('.allBtn').classList.remove('allBtnFocus');
+        }
+    })
 }
